@@ -119,7 +119,7 @@ def stats_api():
 @login_required
 def load_data():
     try:
-        n = load_fatwas_from_json("data.json")
+        n = load_fatwas_from_json("fatwas.json")
         return jsonify({"ok": True, "inserted": n})
     except Exception as e:
         return jsonify({"ok": False, "error": str(e)}), 400

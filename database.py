@@ -44,7 +44,7 @@ def init_db():
     conn.close()
 
 # ============ الفتاوى ============
-def load_fatwas_from_json(path="data.json"):
+def load_fatwas_from_json(path="fatwas.json"):
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
     conn = get_conn()
