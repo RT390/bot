@@ -1,15 +1,10 @@
 FROM python:3.11-slim
 
-# تثبيت ffmpeg + الخطوط العربية
 RUN apt-get update && apt-get install -y \
-    ffmpeg \
-    fonts-noto-core \
-    fonts-noto-color-emoji \
-    fonts-noto-cjk \
-    wget \
+    ffmpeg unzip wget curl fonts-noto-core \
+    fonts-noto-color-emoji fonts-amiri \
     && rm -rf /var/lib/apt/lists/*
 
-# تحميل خط عربي جميل (Amiri)
 RUN mkdir -p /usr/share/fonts/truetype/amiri && \
     wget -q "https://github.com/aliftype/amiri/releases/download/1.000/Amiri-1.000.zip" -O /tmp/amiri.zip && \
     cd /tmp && unzip -q amiri.zip && \
